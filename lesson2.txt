@@ -1,0 +1,26 @@
+#1 СУБД MySQL установлена и my.cnf с логином и паролем созданы!
+
+#2 New DB 
+
+CREATE DATABASE example;
+USE example;
+
+
+CREATE TABLE IF NOT EXIST users (
+	id SERIAL,
+	name VARCHAR(150) NOT NULL UNIQUE);
+	
+#3 Dump DB
+
+mysqldump example > example.sql
+
+#New DB sample
+
+mysql -e 'CREATE DATABASE sample'
+
+# Dump to sample
+mysql sample < example.sql
+
+#4 100 help_ketword
+
+mysqldump mysql help_keyword --where='TRUE LIMIT 100' > help_keyword_dump.sql
